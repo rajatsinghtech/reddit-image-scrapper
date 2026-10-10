@@ -1,15 +1,25 @@
-## Reddit Image Scrapper
+> Written manually, without AI assistance.
 
-I have created this class to scrap images from any subreddit of reddit.com. 
+# Reddit Image Scrapper
 
-The Class requires 3 parameters
+## What this does
 
-1. Folder_path - The path where you want to save all of your downloaded images from Reddit
+A Python class that scrapes images from any subreddit of reddit.com into a
+local folder.
 
-2. Num_scrolls - Subreddits pages in Reddit have an infinite scroll feature. The more we scroll, the more images are loaded on the webpage. The number of scroll attributes specifies the number of times we want to scroll a webpage completely
+## Business process
 
-3. Page_link - The link to the subreddit page
+Point it at a subreddit page; it scrolls the infinite-scroll listing the
+requested number of times and downloads every image it finds â€” bulk dataset
+collection without manual saving.
 
+## Technical flow
 
+One class ([`reddit_image_scrapper.py`](reddit_image_scrapper.py)) drives a
+browser-style scroll loop, collects image URLs from the loaded page, and
+writes the files to disk. Three parameters control it:
 
-
+1. `Folder_path` â€” where to save the downloaded images
+2. `Num_scrolls` â€” how many full-page scrolls to perform (more scrolls =
+   more images loaded)
+3. `Page_link` â€” the subreddit page URL
